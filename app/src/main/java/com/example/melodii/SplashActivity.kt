@@ -5,13 +5,8 @@ import android.animation.PropertyValuesHolder
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock.sleep
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,12 +32,13 @@ class SplashActivity : AppCompatActivity() {
         super.onStart()
         logoAnim()
     }
+
     private fun logoAnim() {
         val logo = findViewById<ImageView>(R.id.logo)
         val logoPulse: ObjectAnimator = ObjectAnimator.ofPropertyValuesHolder(logo,
             PropertyValuesHolder.ofFloat("scaleX", 1.2F),
             PropertyValuesHolder.ofFloat("scaleY", 1.2F))
-        logoPulse.duration = 750
+        logoPulse.duration = 800
         logoPulse.repeatCount = 1
         logoPulse.repeatMode = ObjectAnimator.REVERSE
         logoPulse.interpolator = FastOutLinearInInterpolator()
