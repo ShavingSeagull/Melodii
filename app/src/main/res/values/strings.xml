@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Melodii</string>
     <string name="logo_desc">logo</string>
+    <string name="song_tab">Songs</string>
+    <string name="genre_tab">Genre</string>
+    <string name="artist_tab">Artists</string>
+    <string name="album_tab">Albums</string>
 </resources>
