@@ -22,6 +22,7 @@ class MenuActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val prefs: SharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val permsAccepted: Boolean = prefs.getBoolean("permsAccepted", false)
