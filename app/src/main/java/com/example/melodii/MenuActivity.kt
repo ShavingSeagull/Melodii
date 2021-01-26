@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import java.util.*
 
 class MenuActivity : AppCompatActivity() {
@@ -23,6 +25,13 @@ class MenuActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val viewPager = findViewById<ViewPager>(R.id.menuViewPager)
+        val songAdapter = MenuAdapter(this, supportFragmentManager)
+        viewPager.adapter = songAdapter
+
+        val tabLayout = findViewById<TabLayout>(R.id.menuTabs)
+        tabLayout.setupWithViewPager(viewPager)
 
         val prefs: SharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val permsAccepted: Boolean = prefs.getBoolean("permsAccepted", false)
