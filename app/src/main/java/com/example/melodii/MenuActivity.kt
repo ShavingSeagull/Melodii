@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.viewpager.widget.ViewPager
@@ -39,6 +42,19 @@ class MenuActivity : AppCompatActivity() {
         if (!permsAccepted) {
             showPermissionsDialog()
         }
+    }
+
+    // Displays the options menu in the top-right
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Toast.makeText(this, "Option clicked", Toast.LENGTH_SHORT).show()
+        //return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun hasReadExternalStoragePermission() =

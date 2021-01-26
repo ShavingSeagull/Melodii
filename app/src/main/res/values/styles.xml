@@ -1,0 +1,5 @@
+<resources>
+    <style name="MenuTab" parent="Widget.Design.TabLayout">
+        <item name="tabSelectedTextColor">@android:color/holo_orange_light</item>
+    </style>
+</resources>

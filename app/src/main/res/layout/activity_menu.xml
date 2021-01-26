@@ -15,6 +15,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/menuTabs"
+        style="@style/MenuTab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

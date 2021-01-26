@@ -16,11 +16,12 @@
 
     <!-- Toolbar theme -->
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorControlNormal">@color/generalBg</item>
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <!-- Menu theme -->
     <style name="MenuTheme" parent="Theme.AppCompat">
         <item name="android:background">@color/generalBg</item>
     </style>
+
 </resources>

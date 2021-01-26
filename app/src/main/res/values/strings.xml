@@ -5,4 +5,5 @@
     <string name="genre_tab">Genre</string>
     <string name="artist_tab">Artists</string>
     <string name="album_tab">Albums</string>
+    <string name="settings">Settings</string>
 </resources>
