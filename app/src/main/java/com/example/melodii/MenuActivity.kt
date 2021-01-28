@@ -4,12 +4,14 @@ import android.Manifest
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -35,6 +37,12 @@ class MenuActivity : AppCompatActivity() {
 
         val tabLayout = findViewById<TabLayout>(R.id.menuTabs)
         tabLayout.setupWithViewPager(viewPager)
+
+        // Corrects the image backgrounds not being alpha
+        val playBtn = findViewById<ImageButton>(R.id.playbtn)
+        val shuffleBtn = findViewById<ImageButton>(R.id.shufflebtn)
+        playBtn.setBackgroundColor(0xFFff00)
+        shuffleBtn.setBackgroundColor(0xFFff00)
 
         val prefs: SharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val permsAccepted: Boolean = prefs.getBoolean("permsAccepted", false)
