@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
         val background = object : Thread() {
             override fun run() {
                 try {
-                    sleep(3000)
+                    sleep(2000)
 
                     val intent = Intent(baseContext, MenuActivity::class.java)
                     startActivity(intent)
@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
         val logoPulse: ObjectAnimator = ObjectAnimator.ofPropertyValuesHolder(logo,
             PropertyValuesHolder.ofFloat("scaleX", 1.2F),
             PropertyValuesHolder.ofFloat("scaleY", 1.2F))
-        logoPulse.duration = 800
+        logoPulse.duration = 500
         logoPulse.repeatCount = 1
         logoPulse.repeatMode = ObjectAnimator.REVERSE
         logoPulse.interpolator = FastOutLinearInInterpolator()
