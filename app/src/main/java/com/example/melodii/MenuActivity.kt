@@ -2,9 +2,9 @@ package com.example.melodii
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.os.Bundle
@@ -43,6 +43,7 @@ class MenuActivity : AppCompatActivity() {
         val shuffleBtn = findViewById<ImageButton>(R.id.shufflebtn)
         playBtn.setBackgroundColor(0xFFff00)
         shuffleBtn.setBackgroundColor(0xFFff00)
+        playBtn.setOnClickListener{showSong()}
 
         val prefs: SharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val permsAccepted: Boolean = prefs.getBoolean("permsAccepted", false)
@@ -50,6 +51,8 @@ class MenuActivity : AppCompatActivity() {
         if (!permsAccepted) {
             showPermissionsDialog()
         }
+
+
     }
 
     // Displays the options menu in the top-right
@@ -123,5 +126,10 @@ class MenuActivity : AppCompatActivity() {
         // TODO: IF DIALOGNUM > 2 THEN DELETE APP DATA TO RESET THE PERMISSIONS REQUEST
         editor.putInt("dialogNum", dialogNum)
         editor.apply()
+    }
+
+    private fun showSong() {
+        val intent = Intent(this, SongActivity::class.java)
+        startActivity(intent)
     }
 }

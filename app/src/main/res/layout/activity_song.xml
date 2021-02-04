@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Song Name"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline50" />
@@ -48,7 +48,7 @@
         android:layout_height="35dp"
         android:text="Artist Name"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline75"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
