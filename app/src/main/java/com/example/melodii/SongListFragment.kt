@@ -11,7 +11,7 @@ import android.view.ViewGroup
 /**
  * A fragment representing a list of Items.
  */
-class SongFragment : Fragment() {
+class SongListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

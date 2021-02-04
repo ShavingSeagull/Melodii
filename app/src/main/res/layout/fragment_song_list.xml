@@ -10,4 +10,4 @@
     android:clipToPadding="false"
     app:layoutManager="LinearLayoutManager"
     tools:listitem="@layout/card_item"
-    tools:context=".SongFragment" />
+    tools:context=".SongListFragment" />

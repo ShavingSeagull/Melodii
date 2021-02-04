@@ -11,13 +11,13 @@ class MenuAdapter(context: Context, fm: FragmentManager) : FragmentPagerAdapter(
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> SongFragment()
-            1 -> SongFragment()
-            2 -> SongFragment()
-            3 -> SongFragment()
+            0 -> SongListFragment()
+            1 -> SongListFragment()
+            2 -> SongListFragment()
+            3 -> SongListFragment()
             // May add playlists in as a fragment later
             // Sets Songs as the default because it is the first tab. Should never hit the default!
-            else -> SongFragment()
+            else -> SongListFragment()
         }
     }
 
