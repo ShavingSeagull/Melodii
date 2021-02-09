@@ -1,9 +1,7 @@
 package com.example.melodii
 
 import android.Manifest
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -17,7 +15,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import java.util.*
 
 class MenuActivity : AppCompatActivity() {
 
@@ -43,7 +40,9 @@ class MenuActivity : AppCompatActivity() {
         val shuffleBtn = findViewById<ImageButton>(R.id.shufflebtn)
         playBtn.setBackgroundColor(0xFFff00)
         shuffleBtn.setBackgroundColor(0xFFff00)
+        // Adds click listener to show the current song
         playBtn.setOnClickListener{showSong()}
+        // TODO: Add the click listener for the shuffle function
 
         val prefs: SharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val permsAccepted: Boolean = prefs.getBoolean("permsAccepted", false)
@@ -51,9 +50,8 @@ class MenuActivity : AppCompatActivity() {
         if (!permsAccepted) {
             showPermissionsDialog()
         }
-
-
     }
+
 
     // Displays the options menu in the top-right
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
