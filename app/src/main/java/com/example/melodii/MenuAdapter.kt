@@ -11,7 +11,7 @@ class MenuAdapter(context: Context, fm: FragmentManager) : FragmentPagerAdapter(
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> SongListFragment()
+            0 -> ArtistListFragment()
             1 -> SongListFragment()
             2 -> SongListFragment()
             3 -> SongListFragment()
