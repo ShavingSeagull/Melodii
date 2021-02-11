@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,16 +17,18 @@ import android.view.ViewGroup
  */
 class SongListFragment : Fragment() {
 
+    data class Song(
+        val uri: Uri,
+        val name: String
+    )
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_song_list, container, false)
 
-        data class Song(
-            val uri: Uri,
-            val name: String
-        )
 
-        val songList = mutableListOf<Song>()
+
+        val songClassList = mutableListOf<Song>()
 
         val collection =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -64,20 +65,18 @@ class SongListFragment : Fragment() {
                     id
                 )
 
-                songList += Song(contentUri, name)
+                songClassList += Song(contentUri, name)
             }
-        }
-
-        for (i in songList) {
-            Log.d("MUSIC SONG", i.name)
         }
 
         // Dummy data list
         val dummyList = generateDummyList(100)
+        // Actual list of songs on device
+        val songList = addSongsToList(songClassList)
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
-                adapter = SongRecyclerViewAdapter(dummyList)
+                adapter = SongRecyclerViewAdapter(songList)
                 layoutManager = LinearLayoutManager(this.context)
             }
         }
@@ -90,6 +89,17 @@ class SongListFragment : Fragment() {
         for (i in 0 until size) {
             val drawable = R.drawable.ic_baseline_music_note_24
             val item = CardItem(drawable, "Song $i", "Subtitle")
+            list += item
+        }
+        return list
+    }
+
+    private fun addSongsToList(songList: MutableList<Song>): List<CardItem> {
+        val list = ArrayList<CardItem>()
+
+        for (i in songList) {
+            val drawable = R.drawable.ic_baseline_music_note_24
+            val item = CardItem(drawable, "$i", "Subtitle")
             list += item
         }
         return list
